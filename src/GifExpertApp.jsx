@@ -6,7 +6,10 @@ export const GifExpertApp = () => {
 
   const onAddCategory = (newCategory) => {
     const found = categories.find(
-      (element) => element && newCategory && element.toLowerCase() === newCategory.toLowerCase()
+      (element) =>
+        element &&
+        newCategory &&
+        element.toLowerCase() === newCategory.toLowerCase()
     );
     if (!categories.includes(newCategory) && !found) {
       setCategories(() => {
@@ -14,7 +17,6 @@ export const GifExpertApp = () => {
       });
     }
   };
-
   return (
     <>
       <h1>GifExpertApp</h1>
@@ -24,14 +26,6 @@ export const GifExpertApp = () => {
         onAddCategory={onAddCategory}
         proptest={"test"}
       />
-
-      <button
-        title="Add"
-        name="addCategoryButton"
-        onClick={() => onAddCategory()}
-      >
-        Add
-      </button>
 
       {categories.map((category) => (
         <GifGrid key={category} category={category} />
